@@ -2,9 +2,11 @@
 #A given variable
 library(moments)
 
+#Function inputs: data, column index 
 sum.data <- function(x,y) {
   data <- x %>%              #Filter out NA values; avoids NA.Rm repetition 
     filter(x[y] != "NA")
+  
   results <- c(MEAN = sum(data[y])/nrow(data[y]), MEDIAN = median(data[[y]]),
                STDEV = sd(data[[y]]), InterQ_Range = IQR(data[[y]]), 
                SKWNS = skewness(data[[y]]))
